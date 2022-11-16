@@ -38,6 +38,9 @@ object Advanced extends App {
     case Success(validValue) => s"I have obtained a valid string: $validValue"
     case Failure(ex) => s"I have obtained an exception: $ex"
   }
+
+  println(anotherStringProcessing)
+
   // map, flatMap, filter
 
 

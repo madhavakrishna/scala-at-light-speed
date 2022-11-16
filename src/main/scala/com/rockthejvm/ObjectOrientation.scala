@@ -23,15 +23,16 @@ object ObjectOrientation extends App {
 
   // subtype polymorphism
   val aDeclaredAnimal: Animal = new Dog("Hachi")
+  println(aDeclaredAnimal.age)
   aDeclaredAnimal.eat() // the most derived method will be called at runtime
 
-  // abstract class
+  // abstract class: Not necessarily all fields and methods has implementations
   abstract class WalkingAnimal {
     val hasLegs = true // by default public, can restrict by adding protected or private
-    def walk(): Unit
+    def walk(): Unit   // Unimplemented method
   }
 
-  // "interface" = ultimate abstract type
+  // "interface" = ultimate abstract type, u can leave everything unimplemented
   trait Carnivore {
     def eat(animal: Animal): Unit
   }
@@ -75,7 +76,8 @@ object ObjectOrientation extends App {
   object MySingleton { // the only instance of the MySingleton type
     val mySpecialValue = 53278
     def mySpecialMethod(): Int = 5327
-    def apply(x: Int): Int = x + 1
+    def apply(x: Int): Int = x + 1 // A special method that can be part of any object or class
+    //apply methods allows invoking instances of a class or object as a functions, very useful in functional programming.
   }
 
   MySingleton.mySpecialMethod()
@@ -99,7 +101,7 @@ object ObjectOrientation extends App {
   */
   case class Person(name: String, age: Int)
   // may be constructed without new
-  val bob = Person("Bob", 54) // Person.apply("Bob", 54)
+  val bob = Person("Bob", 54) // Person.apply("Bob", 54) of companion object
 
   // exceptions
   try {
@@ -113,7 +115,7 @@ object ObjectOrientation extends App {
   }
 
   // generics
-  abstract class MyList[T] {
+  abstract class MyList[T] { //Tip: Check covariance  and contravariance in scala, that constrains the generic types.
     def head: T
     def tail: MyList[T]
   }
@@ -134,7 +136,9 @@ object ObjectOrientation extends App {
    */
   val reversedList = aList.reverse // returns a NEW list
 
-  // Point #2: Scala is closest to the OO ideal
+  /** Point #2: Scala is closest to the OO ideal
+    * All the code and values that we operate with are inside some instance of some type.
+   */
 
 
 }

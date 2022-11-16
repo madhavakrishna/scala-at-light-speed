@@ -8,6 +8,16 @@ package com.rockthejvm
   *
   * Daniel @ Rock the JVM
   */
+
+/**
+  * You can run the object Playground with the right-click and 'Run' command
+  *
+  * I am using this in  IntelliJ IDEA
+  * If the build throws an error e.g. "un resolved symbol App"
+  * then make sure that file -> project structure -> Global Librraies -> scala-sdk
+  * is configured with scala-sdk JAR files installed in the system.
+  */
+
 object Playground extends App {
   println("I love Scala!")
 }
